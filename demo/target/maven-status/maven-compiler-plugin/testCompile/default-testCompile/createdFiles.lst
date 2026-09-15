@@ -1,0 +1,6 @@
+com\example\PF\WelcomeUserPagePF.class
+com\example\steps\LoginBankStep.class
+com\example\PF\RegisterPagePF.class
+com\example\RunCucumberTest.class
+com\example\PF\HomePagePF.class
+com\example\PF\AccountOverviewPagePF.class
