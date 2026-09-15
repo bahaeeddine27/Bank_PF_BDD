@@ -5,9 +5,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.rmi.Remote;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.example.PF.AccountOverviewPagePF;
 import com.example.PF.HomePagePF;
@@ -33,7 +36,8 @@ public class LoginBankStep {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        driver = new ChromeDriver();
+        ChromeOptions co = new ChromeOptions();
+        driver = new RemoteWebDriver(gridUrl, co);
         hp = new HomePagePF(driver);
         rg = new RegisterPagePF(driver);
         wu = new WelcomeUserPagePF(driver);
