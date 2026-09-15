@@ -22,18 +22,18 @@ pipeline {
 }
 
             steps {
-                sh 'mvn clean test'
+                sh 'cd demo && mvn clean test'
             }
         }
     }
 
-    post {
-        always {
-            allure([
-                results: [[path: 'target/allure-results']]
-            ])
+    // post {
+    //     always {
+    //         allure([
+    //             results: [[path: 'target/allure-results']]
+    //         ])
 
-            sh 'docker compose down || true'
-        }
-    }
+    //         sh 'docker compose down || true'
+    //     }
+    // }
 }

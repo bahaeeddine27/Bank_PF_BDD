@@ -3,6 +3,9 @@ package com.example.steps;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -21,9 +24,15 @@ public class LoginBankStep {
     RegisterPagePF rg;
     WelcomeUserPagePF wu;
     AccountOverviewPagePF ap;
+    URL gridUrl;
 
     @Before
     public void setUp() {
+        try {
+            gridUrl = new URL("http://selenium-hub:4444/wd/hub");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         driver = new ChromeDriver();
         hp = new HomePagePF(driver);
         rg = new RegisterPagePF(driver);
